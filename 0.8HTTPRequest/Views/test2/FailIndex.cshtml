@@ -1,0 +1,43 @@
+﻿@using _0._8HTTPRequest.Models;
+@model test2
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<div>
+    <label for="ciudad">Ingrese Ciudad</label>
+    <input id="ciudad" type="text" />
+    <button id="btn" class="btn btn-dark">Ver °.°!</button>
+
+</div>
+
+<section class="datosApi1">
+
+ 
+        <label for="latt">Latitud</label>
+        <input id="latt" type="text" />
+        <label for="longt">Longitud</label>
+        <input id="longt" type="text"  />
+
+     
+</section>
+
+
+
+<script>
+    const btn = document.getElementById("btn");
+    const ciudad = document.getElementById("ciudad");
+    btn.addEventListener('click', () => {
+        $.get("Index/?ciudad=" + ciudad.value, function(data) {
+
+            document.getElementById("latt").value = data.latt;
+            document.getElementById("longt").value = data.longt;
+        });
+    });
+
+
+</script>
